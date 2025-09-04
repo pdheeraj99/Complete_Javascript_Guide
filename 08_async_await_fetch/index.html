@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async/Await & Fetch API</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        #data-container {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            min-height: 50px;
+        }
+        .post {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .post-title {
+            font-weight: bold;
+            color: #0056b3;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Async/Await & Fetch API Example</h1>
+    <p>Click the button to fetch a list of posts from a public API (JSONPlaceholder).</p>
+
+    <button id="fetch-btn">Fetch Posts</button>
+
+    <div id="data-container">
+        Click the button to load data...
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

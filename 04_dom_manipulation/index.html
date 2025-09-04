@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Practice</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f4f4f4; color: #333; }
+        .container { max-width: 800px; margin: 20px auto; padding: 20px; background-color: #fff; border: 1px solid #ddd; }
+        .highlight { background-color: yellow; font-weight: bold; }
+        .item { padding: 5px; border-bottom: 1px solid #eee; }
+        img { max-width: 100%; height: auto; }
+        .new-element { padding: 10px; margin-top: 10px; background-color: #e7f7e7; border: 1px solid green; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 id="main-title">DOM Manipulation Playground</h1>
+    </header>
+
+    <main>
+        <div id="container" class="card">
+            <p id="intro-text" class="content">This is the introduction paragraph. We will select and change this text.</p>
+            <p class="content">This is another paragraph, without an ID.</p>
+
+            <h3>Items List</h3>
+            <ul id="item-list">
+                <li class="item">Item 1</li>
+                <li class="item">Item 2</li>
+                <li>Item 3 (no class)</li>
+                <li class="item">Item 4</li>
+            </ul>
+
+            <h3>Image for Attribute Practice</h3>
+            <img id="practice-image" src="https://via.placeholder.com/150" alt="Placeholder Image">
+
+            <div id="creation-zone">
+                <!-- We will add new elements here using JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- It's best practice to put the script tag at the end of the body -->
+    <!-- This ensures all HTML elements are loaded before the script runs -->
+    <script src="index.js"></script>
+</body>
+</html>

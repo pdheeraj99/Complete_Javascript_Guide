@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Events Practice</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .box { padding: 20px; margin-top: 10px; border: 1px solid #ccc; }
+        #hover-box { background-color: lightblue; transition: background-color 0.3s; }
+        #outer { border-color: red; padding: 40px; }
+        #middle { border-color: blue; padding: 40px; }
+        #inner { border-color: green; padding: 20px; text-align: center; font-weight: bold; background-color: #f0f0f0; }
+        form { margin-top: 20px; padding: 15px; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+
+    <h1>DOM Events Playground</h1>
+
+    <!-- Simple Click Event -->
+    <button id="click-me-btn" class="box">Click Me!</button>
+
+    <!-- Mouse Over/Out Event -->
+    <div id="hover-box" class="box">Hover over me to change my color.</div>
+
+    <!-- Keyboard and Input Events -->
+    <div class="box">
+        <label for="name-input">Type something:</label>
+        <input type="text" id="name-input" placeholder="Listen for key events...">
+        <p>Last key pressed: <span id="key-output"></span></p>
+    </div>
+
+    <!-- Form Submit Event & preventDefault -->
+    <form id="test-form">
+        <h3>Form Submission</h3>
+        <label for="username">Username:</label>
+        <input type="text" id="username" required>
+        <button type="submit">Submit Form</button>
+        <p id="form-output"></p>
+    </form>
+
+    <!-- Link preventDefault -->
+    <a id="test-link" href="https://www.google.com" class="box" style="display: block;">This link goes to Google (but we will stop it).</a>
+
+    <!-- Event Bubbling Demonstration -->
+    <h2>Event Bubbling Example</h2>
+    <div id="outer" class="box">
+        Outer (Red)
+        <div id="middle" class="box">
+            Middle (Blue)
+            <div id="inner" class="box">
+                Inner (Green) - Click Me
+            </div>
+        </div>
+    </div>
+    <p>Open the console and click the green box to see the event bubble up.</p>
+
+
+    <script src="index.js"></script>
+</body>
+</html>
