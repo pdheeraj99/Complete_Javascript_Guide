@@ -85,4 +85,6 @@ Ee methods వాడటం valla, mana code lo unexpected changes (bugs) thaggip
 
 ---
 
-I know, chala methods unnai! Kani practice chesthe, anni easy aipothai. Next, `03_array_methods/index.js` file lo veeti anni examples chuddam! Ready aa? 🔥
+I know, chala methods unnai! Kani practice chesthe, anni easy aipothai. Next, `index.js` file lo veeti anni examples chuddam!
+
+After this, we will dive deep into JavaScript's most fundamental building block: **Objects**! Ready aa? 🔥
