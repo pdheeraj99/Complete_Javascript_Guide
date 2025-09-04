@@ -30,10 +30,11 @@ API chala simple ga untundhi:
     *   Prathi tab ki daani **own separate `sessionStorage`** untundhi.
     *   **Use Case**: Storing temporary data for a multi-step form. User tab close cheste, aa temporary data automatic ga povalani anukunnapudu.
 
-**Limitations**:
-1.  **Only stores strings**: Objects or arrays ni store cheyalante, `JSON.stringify()` chesi store cheyali, and retrieve chesaka `JSON.parse()` cheyali.
-2.  **Limited Size**: Usually around 5MB. Pedda data kosam kaadu.
-3.  **Synchronous**: Ee operations anni synchronous (blocking). Performance-critical code lo vadakudadhu.
+**Limitations & Performance Trade-offs 🧠**:
+*   **Only stores strings**: Objects or arrays ni store cheyalante, `JSON.stringify()` chesi store cheyali, and retrieve chesaka `JSON.parse()` cheyali.
+*   **Limited Size**: Usually around 5MB. Pedda data kosam kaadu.
+*   **Synchronous (Blocking!)**: This is the most important trade-off. `localStorage` and `sessionStorage` operations are **synchronous**. Ante, meeru pedda data ni write chestunnapudu, adi complete ayye varaku main thread block avuthundhi, which can make your UI feel sluggish.
+*   **Conclusion**: For small, simple data that is not written frequently, Web Storage is great. For anything larger or more complex, use IndexedDB.
 
 ---
 
@@ -78,8 +79,10 @@ It's a message-passing system.
     *   `self.onmessage = (event) => { ... };` // Listen for messages from the main thread
     *   `self.postMessage(result);` // Send the result back
 
-**Limitations**:
-*   Workers run in a separate context. They **do not have access to the `window` object or the DOM**.
-*   This means you cannot directly manipulate the UI from a worker. The worker must send the result back to the main thread, and the main thread is responsible for updating the UI.
+**Limitations & Performance Considerations 🧠**:
+*   **No DOM Access**: Workers run in a separate context. They **do not have access to the `window` object or the DOM**. You cannot directly manipulate the UI from a worker.
+*   **Communication Overhead**: The main thread and the worker communicate by passing messages. When you `postMessage`, the data is usually **copied** (using a process called "structured cloning"), not shared. Sending very large objects (e.g., megabytes of data) can be slow and memory-intensive due to this copying.
+    *   *Advanced Tip*: For high-performance scenarios, you can use `Transferable Objects` to transfer ownership of data (like an `ArrayBuffer`) from the main thread to the worker without copying, which is almost instant.
+*   **Memory Cost**: Prathi worker oka separate thread lo run avuthundhi, which consumes system resources (CPU and memory). Creating too many workers can be counter-productive and slow down the user's entire system. Use them wisely for truly heavy tasks.
 
 Let's see these APIs in action!

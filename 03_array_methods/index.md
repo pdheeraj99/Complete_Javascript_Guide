@@ -85,6 +85,29 @@ Ee methods వాడటం valla, mana code lo unexpected changes (bugs) thaggip
 
 ---
 
+### Performance Deep Dive: Big O Notation 🚀
+
+*   **What is Big O?**
+    *   Big O Notation anedhi, input size perige koddi, oka algorithm yokka runtime or space usage entha slow avuthundho describe chese oka way.
+    *   It helps us understand which methods are fast and which can become slow on large arrays.
+
+*   **Common Array Method Complexities**:
+    *   **O(1) - Constant Time (⚡ Super Fast!)**:
+        *   `push()`, `pop()`, `at()`, `arr[i]` (Access by index).
+        *   **Why?**: Array size entha unna, ee operations ki okate time paduthundhi.
+    *   **O(n) - Linear Time (🐢 Can be slow on large arrays)**:
+        *   `shift()`, `unshift()`, `splice()`, `slice()`, `indexOf()`, `includes()`, `find()`, `filter()`, `map()`, `forEach()`.
+        *   **Why?**: Ee operations, worst case lo, array lo unna prathi `n` elements ni visit cheyali.
+        *   **`shift()`/`unshift()` Special Case**: Evi enduku O(n)? Because oka element ni start lo add or remove cheste, migatha elements anni vaati index positions ni maaralsi vasthundhi. This is a re-indexing operation that takes linear time.
+    *   **O(n log n) - Log-Linear Time (Good for sorting)**:
+        *   `sort()`: Generally, sorting algorithms have this complexity.
+
+*   **🧠 Senior Dev Interview Question**:
+    *   **Question**: "You have a large array of user objects, and you need to frequently check if a user with a specific ID exists. Using `find()` or `includes()` seems slow. What's a more performant approach?"
+    *   **Answer Hint**: Convert the array into a `Map` or `Object` where the keys are the user IDs. `array.find()` is an O(n) operation. `map.has(id)` or `obj[id]` is an **O(1)** operation (constant time). For frequent lookups on large datasets, creating this map/object once is much more performant.
+
+---
+
 I know, chala methods unnai! Kani practice chesthe, anni easy aipothai. Next, `index.js` file lo veeti anni examples chuddam!
 
 After this, we will dive deep into JavaScript's most fundamental building block: **Objects**! Ready aa? 🔥

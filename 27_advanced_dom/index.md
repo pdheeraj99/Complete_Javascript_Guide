@@ -6,11 +6,16 @@ Mawa, manam DOM ni direct ga manipulate cheyadam nerchukunnam. Kani modern frame
 
 ### 🤔 1. The Problem with Direct DOM Manipulation
 
-*   Direct DOM manipulation pani chestundhi, kani adi **slow** avvochu.
-*   Prathi sari manam DOM ni change chesinapudu (e.g., `element.textContent = ...` or `element.appendChild(...)`), browser venakala chala pani cheyali:
-    *   It has to recalculate the layout of the page (**reflow**).
-    *   It has to repaint the screen with the new changes (**repaint**).
-*   Manam okate sari chala chinna chinna changes cheste, ee process antha chala inefficient ga untundhi and UI sluggish ga anipisthundhi.
+*   Direct DOM manipulation pani chestundhi, kani adi **slow** avvochu. Why? Because the DOM was not designed for a large number of small updates.
+*   Prathi sari manam DOM ni change chesinapudu, browser venakala chala pani cheyali:
+    *   **Reflow (or Layout)  recalculation**: Oka element size or position change ayinapudu, browser page lo unna anni related elements yokka geometry ni malli calculate cheyali. This is very "expensive" (slow).
+    *   **Repaint (or Redraw)**: Reflow tarvata, browser aa changed elements ni screen meedha ki malli draw cheyali.
+*   Manam okate sari chala chinna chinna changes cheste (e.g., adding 100 list items in a loop), ee process antha chala inefficient ga untundhi and UI sluggish ga anipisthundhi.
+
+*   **💡 Best Practice: Batching DOM Updates**:
+    *   Oka loop lo 100 elements ni direct ga DOM ki add cheyadam badulu (causing 100 reflows), manam vaatini mundu oka in-memory `DocumentFragment` ki add cheyali.
+    *   Ee fragment ki items add chestunnapudu, reflow jaragadu.
+    *   Anni items add chesaka, aa **single fragment** ni DOM ki append cheyali. This results in only **one** reflow.
 
 ---
 
