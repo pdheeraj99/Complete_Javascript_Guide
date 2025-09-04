@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Security</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; display: flex; gap: 40px; }
+        .box { padding: 20px; border: 1px solid #ccc; width: 45%; }
+        .box h2 { margin-top: 0; }
+        input { width: 95%; padding: 8px; margin-bottom: 10px; }
+        .comment-display { min-height: 100px; background-color: #f4f4f4; padding: 10px; margin-top: 10px; }
+        .vulnerable { border-color: red; }
+        .secure { border-color: green; }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Vulnerable Example -->
+    <div class="box vulnerable">
+        <h2>Vulnerable Comment Section (uses `.innerHTML`)</h2>
+        <p>Try submitting the following as a comment:</p>
+        <code>&lt;img src=x onerror="alert('XSS Attack!')"&gt;</code>
+        <br><br>
+        <input type="text" id="vulnerable-input" placeholder="Enter your comment...">
+        <button id="vulnerable-btn">Submit</button>
+        <h4>Comment:</h4>
+        <div id="vulnerable-output" class="comment-display"></div>
+    </div>
+
+    <!-- 2. Secure Example -->
+    <div class="box secure">
+        <h2>Secure Comment Section (uses `.textContent`)</h2>
+        <p>Try submitting the same malicious comment here.</p>
+        <code>&lt;img src=x onerror="alert('XSS Attack!')"&gt;</code>
+        <br><br>
+        <input type="text" id="secure-input" placeholder="Enter your comment...">
+        <button id="secure-btn">Submit</button>
+        <h4>Comment:</h4>
+        <div id="secure-output" class="comment-display"></div>
+    </div>
+
+
+    <script src="index.js"></script>
+</body>
+</html>

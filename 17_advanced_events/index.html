@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Events</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .box { padding: 20px; margin-top: 10px; border: 1px solid #ccc; }
+        #task-list li { cursor: pointer; padding: 5px; }
+        #task-list li.completed { text-decoration: line-through; color: grey; }
+        .user-card { border: 2px solid cornflowerblue; padding: 15px; background-color: #f0f8ff; }
+        .control-panel { border: 2px solid lightcoral; padding: 15px; margin-top: 15px; }
+    </style>
+</head>
+<body>
+
+    <h1>Advanced Events Playground</h1>
+
+    <!-- 1. Event Delegation Example -->
+    <div class="box">
+        <h2>To-Do List (Event Delegation)</h2>
+        <p>Click on any list item to mark it as completed. The event listener is on the parent `ul`, not on the individual `li` items.</p>
+        <ul id="task-list">
+            <li>Buy groceries</li>
+            <li>Feed the cat</li>
+            <li>Learn JavaScript</li>
+        </ul>
+        <button id="add-task-btn">Add New Task</button>
+    </div>
+
+    <!-- 2. Custom Events Example -->
+    <div class="box">
+        <h2>User Profile (Custom Events)</h2>
+        <p>The card below listens for a 'user:updated' event. The control panel dispatches it.</p>
+
+        <div id="user-card" class="user-card">
+            <h3>Name: <span id="user-name">Jules</span></h3>
+            <p>Status: <span id="user-status">Online</span></p>
+        </div>
+
+        <div class="control-panel">
+            <h4>Control Panel</h4>
+            <button id="update-user-btn">Trigger User Update</button>
+        </div>
+    </div>
+
+
+    <script src="index.js"></script>
+</body>
+</html>

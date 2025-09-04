@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modular Architecture</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        button { padding: 10px 20px; font-size: 16px; }
+    </style>
+</head>
+<body>
+
+    <h1>Dynamic Imports & Code Splitting</h1>
+    <p>Open your browser's developer tools and go to the "Network" tab.</p>
+    <p>When you click the button below, you will see a new JavaScript file (`module.js`) being downloaded on demand.</p>
+    <hr>
+
+    <button id="load-module-btn">Load Module & Greet</button>
+
+    <!--
+        This script tag needs `type="module"` because it uses the `import()` syntax,
+        which is part of the ES Modules system.
+    -->
+    <script type="module" src="index.js"></script>
+</body>
+</html>
