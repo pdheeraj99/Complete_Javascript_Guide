@@ -20,10 +20,12 @@ A promise starts as `pending` and can only settle *once* (either fulfilled or re
 
 ---
 
-### Creating & Consuming a Promise
+### Creating & Consuming a Promise 🤝
 
 **Creating a Promise** (Manam oka promise ni ela create cheyali):
-We use the `Promise` constructor, which takes a function (called the "executor") as an argument. The executor itself takes two functions: `resolve` and `reject`.
+*   We use the `Promise` constructor: `new Promise(...)`.
+*   It takes a function (the "executor") as an argument.
+*   The executor itself is given two functions as arguments: `resolve` and `reject`.
 
 ```javascript
 const myPromise = new Promise((resolve, reject) => {
@@ -34,11 +36,10 @@ const myPromise = new Promise((resolve, reject) => {
 ```
 
 **Consuming a Promise** (Promise nunchi value ni ela theeskovali):
-We use special methods that are attached to the promise object.
-
-*   ⭐ `.then(onFulfilled)`: Promise `fulfilled` aithe, ee method lopala unna function run avuthundhi. Aa function ki result pass avuthundhi.
-*   ⭐ `.catch(onRejected)`: Promise `rejected` aithe, ee method lopala unna function run avuthundhi. Aa function ki error pass avuthundhi.
-*   `.finally(onFinally)`: Promise `fulfilled` aina, `rejected` aina, idhi pakka run avuthundhi. Good for cleanup code.
+*   We use special methods that are attached to the promise object.
+*   ✅ `.then(onFulfilled)`: Promise `fulfilled` aithe, ee method lopala unna function run avuthundhi.
+*   ❌ `.catch(onRejected)`: Promise `rejected` aithe, ee method lopala unna function run avuthundhi.
+*   🧹 `.finally(onFinally)`: Promise `fulfilled` aina, `rejected` aina, idhi pakka run avuthundhi. (Good for cleanup code).
 
 ---
 

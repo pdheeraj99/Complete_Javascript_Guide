@@ -48,24 +48,27 @@ graph TD
 
 ---
 
-### 2. Memory Management & Garbage Collection
+### 2. Memory Management & Garbage Collection 🗑️
 
-**The Memory Lifecycle**
-Application lo memory management 3 stages lo untundhi:
-1.  **Allocate**: Manam variables, objects, functions create chesinapudu, JS engine vaatiki memory ni allocate chestundhi. `let x = 10;`
-2.  **Use**: Manam aa allocated memory ni read and write chestam. `console.log(x);`
-3.  **Release**: Inka avasaram leni memory ni release cheyadam. JavaScript lo ee process automatic ga jaruguthundhi, thanks to the **Garbage Collector (GC)**.
+*   **Analogy**: Think of memory management like a robotic cleaning crew 🤖🧹 in your application. It periodically checks for any 'trash' (unreachable objects) and cleans it up to make space.
 
-**What is Garbage?**
-Oka object ki inka "reachability" lekapothe, adi garbage anamata. Ante, mana code lo unna root (global variables, current running functions) nunchi aa object ni reach avvadaniki దారి lekapothe, adi useless.
+*   **The Memory Lifecycle**:
+    1.  **Allocate**: Allocate: Manam variables create chesinapudu, JS engine vaatiki memory ni allocate chestundhi.
+    2.  **Use**: Manam aa allocated memory ni read and write chestam.
+    3.  **Release**: Inka avasaram leni memory ni release cheyadam. Ee pani **Garbage Collector (GC)** automatic ga chestundhi.
 
-**The Mark-and-Sweep Algorithm (High-Level)**
-Most modern JS engines ee algorithm ni use chestai. Idi rendu phases lo pani chestundhi:
-1.  **Mark Phase**: Garbage Collector, root objects nunchi start ayi, reachable ayina prathi object ni "mark" (tag) chestundhi.
-2.  **Sweep Phase**: GC memory antha scan chesi, "mark" leni objects anni "sweep" chesi, aa memory ni free chestundhi.
+*   **What is Garbage?**
+    *   Oka object ki inka "reachability" lekapothe, adi garbage anamata.
+    *   Ante, mana code lo unna "root" (global variables, current running functions) nunchi aa object ni reach avvadaniki దారి lekapothe, adi useless.
 
-**Memory Leaks**
-Sometimes, manam avasaram leni objects ki reference ni hold chesi unchutham. Ala cheste, Garbage Collector daanini reachable anukuni, sweep cheyadu. Deenine **memory leak** antaru.
-*   **Common Cause**: Oka DOM element ki event listener add chesi, aa element ni DOM nunchi remove chesi, kani event listener ni remove cheyadam marchipovadam.
+*   **The Mark-and-Sweep Algorithm (High-Level)**
+    *   Most modern JS engines ee algorithm ni use chestai.
+    *   **Mark Phase ✅**: The GC starts from the roots and "marks" every object that is reachable.
+    *   **Sweep Phase 🧹**: The GC goes through all the memory and "sweeps" away any object that was *not* marked, freeing up the memory.
+
+*   **Memory Leaks 💧**
+    *   Sometimes, manam avasaram leni objects ki reference ni hold chesi unchutham.
+    *   Ala cheste, Garbage Collector daanini reachable anukuni, sweep cheyadu. Deenine **memory leak** antaru.
+    *   **Common Cause**: Oka DOM element ki event listener add chesi, aa element ni DOM nunchi remove chesi, kani event listener ni remove cheyadam marchipovadam.
 
 Understanding these concepts helps in writing more performant and robust applications. Let's see the microtask/macrotask difference in code!

@@ -11,19 +11,22 @@ Mawa, welcome to one of the most important and powerful topics in all of JavaScr
     *   **Analogy**: Ordering food at a restaurant. Meeru order chesi, token theeskuni, velli table lo kurchuntaru. Mee food ready ayyaka, token light veluguthundhi. Ee madhyalo meeru free ga ne unnaru.
 
 **Why is Async so important?**
-Web pages lo chala panulu time theeskuntai (e.g., server nunchi data thevadam, oka pedda image ni load cheyadam). Ee panulu sync ga jarigithe, antha sepu mee website **freeze** aipothundhi! User em click cheyaleka, scroll cheyaleka chala frustrate avutharu. Async valla, ee long-running tasks background lo jaruguthu untai, and website responsive ga untundhi.
+*   🌐 Web pages lo chala panulu time theeskuntai (e.g., server nunchi data thevadam, oka pedda image ni load cheyadam).
+*   🥶 Ee panulu sync ga jarigithe, antha sepu mee website **freeze** aipothundhi! User em click cheyaleka, scroll cheyaleka chala frustrate avutharu.
+*   😎 Async valla, ee long-running tasks background lo jaruguthu untai, and website responsive ga untundhi.
 
 ---
 
 ### The Event Loop (The "How it Works" Deep Dive) 🧠
 
-"JavaScript is a single-threaded language" ani meeru vinundochu. Mari ala aithe, adi async panulani ela handle chestundhi? The answer is the **Event Loop**, which is part of the browser's environment, not the JS engine itself.
+*   "JavaScript is a single-threaded language" ani meeru vinundochu. Mari ala aithe, adi async panulani ela handle chestundhi?
+*   The answer is the **Event Loop**, which is part of the browser's environment, not the JS engine itself.
 
 Here are the key components:
-1.  **Call Stack**: Idi JS functions execute ayye place. Okati meedha okati stack la peruguthu untai (Last-In, First-Out).
-2.  **Web APIs**: Evi browser manaku icche extra powers (`setTimeout`, DOM events, `fetch`). Evi JS engine lo భాగం kaavu. Async operation start ayinapudu, adi Web API ki handoff cheyabaduthundhi.
-3.  **Callback Queue (or Task Queue)**: Web API lo task complete ayyaka (e.g., `setTimeout` timer expires), daani callback function ee queue lo vachi paduthundhi. Idi First-In, First-Out.
-4.  **Event Loop**: Deeniki okate pani: **"Is the Call Stack empty?"** ani continuously check cheyadam. Call Stack empty ga unte, adi Callback Queue lo unna first item ni theesi Call Stack lo peduthundhi, so it can be executed.
+*   🥞 **Call Stack**: Idi JS functions execute ayye place. (Last-In, First-Out).
+*   🌐 **Web APIs**: Evi browser manaku icche extra powers (`setTimeout`, DOM events, `fetch`). Async operation start ayinapudu, adi Web API ki handoff cheyabaduthundhi.
+*   🚶‍♂️ **Callback Queue (or Task Queue)**: Web API lo task complete ayyaka, daani callback function ee queue lo vachi paduthundhi. (First-In, First-Out).
+*   🕵️ **Event Loop**: Deeniki okate pani: **"Is the Call Stack empty?"** ani continuously check cheyadam. Call Stack empty ga unte, adi Callback Queue lo unna first item ni theesi Call Stack lo peduthundhi, so it can be executed.
 
 **Visualization of the Flow:**
 ```mermaid

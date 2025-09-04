@@ -102,12 +102,12 @@ Mana code different situations lo different ga behave avvali. Daanike conditions
 
 Functions ante oka set of instructions ki manam ichina peru. Oka sari rasi, enni sarlu aina use cheskovachu.
 
-*   **Function Declaration**: `function functionName() { ... }`. Ee type functions "hoisted" avuthai, ante file lo ekkada unna, mundhe access cheyochu.
-*   **Function Expression**: `const functionName = function() { ... }`. Ee functions hoisted avvavu.
+*   **Function Declaration**: `function functionName() { ... }`. Ee type functions ni manam define cheyakmundhe kuda call cheyochu.
+*   **Function Expression**: `const functionName = function() { ... }`. Ee functions ni manam define chesaka matrame call cheyagalam.
 
-*   **Parameters vs Arguments**:
-    *   `Parameters`: Function define chesetappudu manam icche variable names (`name`).
-    *   `Arguments`: Function call chesetappudu manam pass chese actual values (`'Jules'`).
+*   **Parameters vs Arguments 🗣️**:
+    *   **Parameters**: Function define chesetappudu manam icche placeholder names (e.g., `name`).
+    *   **Arguments**: Function call chesetappudu manam pass chese actual values (e.g., `'Jules'`).
 
     ```javascript
     // 'name' is a parameter
@@ -118,39 +118,34 @@ Functions ante oka set of instructions ki manam ichina peru. Oka sari rasi, enni
     greet('Jules'); // 'Jules' is an argument
     ```
 
-*   **Scope (Koncham Deep ga)**
-    Mana `01-fundamentals.md` lo cheppinattu, scope ante "where variables are accessible".
-    ```mermaid
-    graph TD
-        A[Global Scope] --> B{Function Scope};
-        B --> C{Block Scope};
-    ```
-    *   **Global Scope**: Bayata declare chesina variables ekkadaina available untai.
-    *   **Function Scope**: `var` tho function lopala declare cheste, avi aa function ki matrame available.
-    *   **Block Scope**: `let` and `const` tho `{}` lopala declare cheste, avi aa block ki matrame available. Idi chala useful.
+*   **Scope (A Quick Look) 🔭**:
+    *   Scope ante "where a variable is accessible".
+    *   `Global Scope`: Bayata declare chesina variables ekkadaina available.
+    *   `Function Scope`: `var` tho function lopala declare cheste, avi aa function ki matrame available.
+    *   `Block Scope`: `let` and `const` tho `{}` lopala declare cheste, avi aa block ki matrame available.
+    *   *(Deeni gurinchi manam 'Closures & Scope Deep Dive' section lo inka chala deep ga nerchukundam!)*
 
-🧠 **Tricky Interview Question**: "What is the difference between a function declaration and a function expression? Explain with respect to hoisting."
+🧠 **Tricky Interview Question**: "What is the difference between a parameter and an argument in a function?"
 
 ---
 
-### 4. Arrays (Data List)
+### 4. Arrays (A List of Items) 📝
 
-Arrays ante oka list lo chala values ni store cheyadam. Values different types vi kuda undochu.
-
+*   Arrays ante oka list lo chala values ni store cheyadam.
+*   Values different types vi kuda undochu.
 *   **Creating an Array**: `const fruits = ['Apple 🍎', 'Banana 🍌', 'Cherry 🍒'];`
 *   **Accessing Elements**: Index tho access chestam. Index `0` tho start avuthundhi.
-    `console.log(fruits[0]); // 'Apple 🍎'`
+    *   `console.log(fruits[0]); // 'Apple 🍎'`
 *   **`.length` property**: Array lo enni items unnayo chepthundhi.
-    `console.log(fruits.length); // 3`
+    *   `console.log(fruits.length); // 3`
 
-> **Important Note**: Arrays anevi chala powerful! వాటితో panulu cheyadaniki JavaScript chala methods isthundhi (`push`, `pop`, `map`, `filter`, etc.). Ee methods anni manam next file **`02-array-methods.md`** lo, prathi okkati detail ga, examples tho nerchukundam. Get ready for that!
+> **Important Note ➡️**: Arrays anevi chala powerful! వాటితో panulu cheyadaniki JavaScript chala methods isthundhi. Ee methods anni manam next file **`03_array_methods/index.md`** lo, prathi okkati detail ga, examples tho nerchukundam. Get ready for that!
 
 ---
 
-### 5. Objects (Data with Labels)
+### 5. Objects (Data with Labels) 📇
 
-Objects tho manam real-world things ni (like a user, a car, a product) key-value pairs ga represent cheyochu.
-
+*   Objects tho manam real-world things ni (like a user, a car, a product) key-value pairs ga represent cheyochu.
 *   **Creating an Object**:
     ```javascript
     const user = {
@@ -162,19 +157,18 @@ Objects tho manam real-world things ni (like a user, a car, a product) key-value
 *   **Accessing Properties**:
     *   **Dot Notation**: `user.name` (Most common and easy).
     *   **Bracket Notation**: `user['age']` (Useful when the key is in a variable or has special characters like `user['first-name']`).
-
-*   **Methods in Objects**: Object lopala function unte, daanini method antaru.
+*   **Functions in Objects (Methods)**: Manam object lo functions ni kuda values ga pettొచ్చు!
     ```javascript
     const person = {
         name: 'Ravi',
         greet: function() {
-            console.log(`Hello from ${this.name}!`);
+            // NOTE: `this.name` lanti advanced concepts gurinchi tarvata chuddam.
+            // For now, let's just use the variable directly.
+            console.log(`Hello from Ravi!`);
         }
     };
     person.greet(); // "Hello from Ravi!"
     ```
-*   **`this` keyword (A Small Intro)**: Oka method lopala `this` ante, aa method ye object ki chendhinadho, aa object anamata.
-    > **Note**: `this` keyword JavaScript lo oka pedda and koncham confusing topic. Deeni gurinchi manam **Section 6: Advanced & Conceptual Topics** lo chala detail ga matladukundam. For now, just remember it refers to the object itself in this context.
 
 🧠 **Tricky Interview Question**: "What is the difference between dot and bracket notation for accessing object properties? When would you use bracket notation?"
 
