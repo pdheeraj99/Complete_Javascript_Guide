@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced DOM</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; display: flex; gap: 40px; }
+        .box { padding: 20px; border: 1px solid #ccc; width: 45%; }
+        #watched-box { border: 2px solid cornflowerblue; background-color: #f0f8ff; padding: 15px; }
+        #mutation-log { height: 200px; overflow-y: scroll; border: 1px solid #999; padding: 10px; background-color: #333; color: #lime; font-family: monospace; }
+        .log-entry { border-bottom: 1px solid #555; padding-bottom: 5px; margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>Mutation Observer Demo</h2>
+        <p>The blue box below is being "watched" by a Mutation Observer. Any changes to its attributes or its children will be logged in the black box.</p>
+
+        <div id="watched-box" data-status="idle">
+            <p id="watched-text">This is the initial text.</p>
+            <ul id="watched-list">
+                <li>Item 1</li>
+            </ul>
+        </div>
+
+        <hr>
+        <h4>Controls</h4>
+        <button id="add-item-btn">Add List Item</button>
+        <button id="change-attr-btn">Change Box Attribute</button>
+        <button id="change-text-btn">Change Text Content</button>
+    </div>
+
+    <div class="box">
+        <h2>Mutation Log</h2>
+        <div id="mutation-log"></div>
+    </div>
+
+
+    <script src="index.js"></script>
+</body>
+</html>
